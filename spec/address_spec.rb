@@ -58,10 +58,28 @@ describe 'Contact' do
     end
   end
 
-  describe 'Phone' do
+   describe 'Phone' do
+    before do
+      Phone.clear
+    end
+
     it 'is initialized with a phone number' do
       new_phone = Phone.new '503-456-9333'
-      new_phone.number.should eq '503-456-9333'
+      new_phone.phone_add
+      new_phone.all_phones.should eq ['503-456-9333']
+    end
+  end
+
+  describe '.clear' do
+    it 'clears all the phone numbers' do
+      @@all_phone_numbers = []
+    end
+  end
+
+  describe '.all' do
+    it 'stores all the phone numbers' do
+      Phone.clear
+      Phone.all.should eq []
     end
   end
 
