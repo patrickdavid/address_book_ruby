@@ -40,60 +40,91 @@ describe 'Contact' do
     new_contact.addresses[0].address.should eq '123 Main St.'
   end
 
-  # it 'allows users to edit contacts' do
-  #   new_contact = Contact.new 'John Doe'
-  #   new_contact.add_contact.should eq [new_contact]
-  # end
+describe '.all' do
+  it 'creates an empty array' do
+    Contact.clear
+    Contact.all.should eq []
+  end
+end
 
-  describe '.all' do
-    it 'creates an empty array' do
-      Contact.clear
-      Contact.all.should eq []
-    end
+describe '.clear' do
+  it 'empties the contact array' do
+    Contact.all.should eq []
+  end
+end
+end
+
+describe 'Phone' do
+  before do
+    Phone.clear
   end
 
-  describe '.clear' do
-    it 'empties the contact array' do
-      Contact.all.should eq []
-    end
+  it 'is initialized with a phone number' do
+    new_phone = Phone.new '503-456-9333'
+    new_phone.phone_add
+    new_phone.all_phones.should eq ['503-456-9333']
+  end
+end
+
+describe '.clear' do
+  it 'clears all the phone numbers' do
+    @@all_phone_numbers = []
+  end
+end
+
+describe '.all' do
+  it 'stores all the phone numbers' do
+    Phone.clear
+    Phone.all.should eq []
+  end
+end
+
+describe 'Email' do
+  before do
+    Email.clear
   end
 
-   describe 'Phone' do
-    before do
-      Phone.clear
-    end
+  it 'is initialized with an email address' do
+    new_email = Email.new 'john.doe@aol.com'
+    new_email.email_add
+    new_email.all_emails.should eq ['john.doe@aol.com']
+  end
+end
 
-    it 'is initialized with a phone number' do
-      new_phone = Phone.new '503-456-9333'
-      new_phone.phone_add
-      new_phone.all_phones.should eq ['503-456-9333']
-    end
+describe '.clear' do
+  it 'clears all the emails' do
+    @@all_emails = []
+  end
+end
+
+describe '.all' do
+  it 'stores all the ' do
+    Email.clear
+    Email.all.should eq []
+  end
+end
+
+describe 'Address' do
+  before do
+    Address.clear
   end
 
-  describe '.clear' do
-    it 'clears all the phone numbers' do
-      @@all_phone_numbers = []
-    end
+  it 'is initialized with an address' do
+    new_address = Address.new '123 Main st'
+    new_address.address_add
+    new_address.all_address.should eq ['123 Main st']
   end
+end
 
-  describe '.all' do
-    it 'stores all the phone numbers' do
-      Phone.clear
-      Phone.all.should eq []
-    end
+describe '.clear' do
+  it 'clears all the address' do
+    @@all_address = []
   end
+end
 
-  describe 'Email' do
-    it 'is initialized with a new e-mail' do
-      new_email = Email.new 'john.doe@aol.com'
-      new_email.addy.should eq 'john.doe@aol.com'
-    end
-  end
-
-  describe 'Address' do
-    it 'is initialized wth an address' do
-      new_address = Address.new '123 Main St.'
-      new_address.address.should eq '123 Main St.'
-    end
+describe '.all' do
+  it 'stores all the ' do
+    Address.clear
+    Address.all.should eq []
   end
 end
