@@ -26,6 +26,20 @@ describe 'Contact' do
     new_contact.phones[0].number.should eq '503-333-3333'
   end
 
+  it 'allows users to store a contact email' do
+    new_contact = Contact.new 'John Doe'
+    new_email = Email.new 'john.doe@aol.com'
+    new_contact.email_input(new_email)
+    new_contact.emails[0].addy.should eq 'john.doe@aol.com'
+  end
+
+  it 'allows users to store a contact address' do
+    new_contact = Contact.new 'John Doe'
+    new_address = Address.new '123 Main St.'
+    new_contact.address_input(new_address)
+    new_contact.addresses[0].address.should eq '123 Main St.'
+  end
+
   # it 'allows users to edit contacts' do
   #   new_contact = Contact.new 'John Doe'
   #   new_contact.add_contact.should eq [new_contact]

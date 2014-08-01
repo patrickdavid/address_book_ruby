@@ -6,9 +6,4 @@ class Email
   def addy
     @addy
   end
-
-  def email_input(email)
-    @contact_info << email
-  end
-
 end
